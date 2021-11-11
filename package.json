@@ -1,0 +1,8 @@
+{
+  "name": "weather-proxy",
+  "version": "1.0.0",
+  "description": "Proxy API server for quickweather.netlify.app ReactJs web app",
+  "main": "index.js",
+  "author": "Elvis",
+  "license": "MIT"
+}
