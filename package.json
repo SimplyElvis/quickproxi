@@ -4,5 +4,10 @@
   "description": "Proxy API server for quickweather.netlify.app ReactJs web app",
   "main": "index.js",
   "author": "Elvis",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "needle": "^3.0.0"
+  }
 }
