@@ -1,14 +1,17 @@
 const url = require("url");
-const weather = require("express").Router();
+const weatherRoute = require("express").Router();
 const needle = require("needle");
 require("dotenv").config();
+const apiCache = require("apicache");
 
-weather.get("/", async (req, res) => {
-  console.log("weather");
+let cache = apiCache.middleware;
+
+// query for a city.
+weatherRoute.get("/api/weather", cache("1 minutes"), async (req, res) => {
   try {
     const params = new URLSearchParams({
-      [process.env.OWEATHER_APP_ID]: process.env.OWEATHER_APP_ID,
-      ...url.parse(req.url, true).query,
+      [process.env.OWEATHER_APP_ID]: process.env.OWEATHER_API_KEY,
+      ...url.parse(req.url, true).query, //spread all params passed as query arguments.
     });
 
     const OweatherResp = await needle(
@@ -23,4 +26,4 @@ weather.get("/", async (req, res) => {
   }
 });
 
-module.exports = weather;
+module.exports = weatherRoute;
