@@ -23,7 +23,7 @@ app.use("/", weatherRoute);
 
 app.get("/", (req, res) => {
   res.send(
-    "<h2>Frontend live site avaliable at https://quickweather.netlify.app/</h2>"
+    `<h2>Weather API proxy server</h2><p>Backend API proxy server with hidden API key, rate limiting and caching for <a href='https://quickweather.netlify.app/'>quick weather</a> ReactJs web app.</p>`
   );
 });
 
