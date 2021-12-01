@@ -3,7 +3,7 @@ const url = require("url");
 const needle = require("needle");
 
 // query for a city.
-const qCityWeather = async () => {
+const qCityWeather = async (req, res) => {
   try {
     const params = new URLSearchParams({
       [process.env.OWEATHER_APP_ID]: process.env.OWEATHER_API_KEY,
