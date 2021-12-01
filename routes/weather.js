@@ -1,4 +1,4 @@
-const { qCityWeather } = require("../controllers/weather.js");
+const { qCityWeather } = require("../controllers/weather.controller.js");
 const apiCache = require("apicache");
 const weatherData = require("express").Router();
 
