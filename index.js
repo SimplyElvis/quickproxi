@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const weatherRoute = require("./routes/weather");
+const { weatherData } = require("./routes/weather");
 const rateLimit = require("express-rate-limit");
 
 const app = express();
@@ -19,11 +19,11 @@ app.use(limiter);
 
 app.set("trust-proxy", 1);
 
-app.use("/", weatherRoute);
+app.use("/", weatherData);
 
 app.get("/", (req, res) => {
   res.send(
-    `<h2>Weather API proxy server</h2><p>Backend API proxy server with hidden API key, rate limiting and caching for <a href='https://quickweather.netlify.app/'>quick weather</a> ReactJs web app.</p>`
+    `<h2>API proxy server</h2><p>Backend API proxy server with hidden API key, rate limiting and caching for <a href='https://quickweather.netlify.app/'>quick weather</a> and <a href='https://trackmyip.netlify.app/' ReactJs web apps.</p>`
   );
 });
 
