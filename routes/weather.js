@@ -4,6 +4,6 @@ const weatherData = require("express").Router();
 
 let cache = apiCache.middleware;
 
-weatherData.get("/api/weather", cache("1 minutes"), qCityWeather);
+weatherData.get("/", cache("1 minutes"), qCityWeather);
 
 module.exports = { weatherData };

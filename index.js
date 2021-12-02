@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const { weatherData } = require("./routes/weather");
+const { trackroute } = require("./routes/tracker");
 const rateLimit = require("express-rate-limit");
 
 const app = express();
@@ -19,7 +20,8 @@ app.use(limiter);
 
 app.set("trust-proxy", 1);
 
-app.use("/", weatherData);
+app.use("/api/weather", weatherData);
+app.use("/api/track", trackroute);
 
 app.get("/", (req, res) => {
   res.send(
