@@ -20,8 +20,8 @@ app.use(limiter);
 
 app.set("trust-proxy", 1);
 
-app.use("/api/weather", weatherData);
-app.use("/api/track", trackroute);
+app.use("/", weatherData);
+// app.use("/api/track", trackroute);
 
 app.get("/", (req, res) => {
   res.send(
